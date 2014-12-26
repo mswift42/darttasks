@@ -4,10 +4,12 @@ description: A minimal web app for the developer that doesn’t want to be confu
 environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
+  bootjack: any
   bootjack_datepicker: any
   browser: any
   route_hierarchical: '>=0.5.0 <0.7.0'
   sass: '>=0.4.0 <0.5.0'
   script_inliner: '>=1.0.0 <2.0.0'
+  unittest: any
 transformers:
 - script_inliner
