@@ -6,6 +6,7 @@ import 'dart:html';
 import 'package:webapp/nav_menu.dart';
 import 'package:webapp/reverser.dart';
 import 'package:route_hierarchical/client.dart';
+import 'package:bootjack_datepicker/bootjack_datepicker.dart';
 
 ButtonElement newTaskButton;
 
@@ -21,6 +22,9 @@ void main() {
     ..addRoute(name: 'about', path: '/about', enter: showAbout)
     ..addRoute(name: 'home', defaultRoute: true, path: '/', enter: showHome);
   router.listen();
+  Calendar.use();
+  var dateinp = querySelector('.calendar');
+  dateinp.setAttribute('data-date',"31/12/2014" );
 }
 
 void showNewTask(_) {
