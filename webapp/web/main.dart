@@ -7,9 +7,13 @@ import 'package:webapp/nav_menu.dart';
 import 'package:webapp/reverser.dart';
 import 'package:route_hierarchical/client.dart';
 
+ButtonElement newTaskButton;
+
 void main() {
   initNavMenu();
   initReverser();
+  newTaskButton = querySelector('#showNewTask');
+  newTaskButton.onClick.listen(showNewTask);
 
   // Webapps need routing to listen for changes to the URL.
   var router = new Router();
@@ -17,6 +21,15 @@ void main() {
     ..addRoute(name: 'about', path: '/about', enter: showAbout)
     ..addRoute(name: 'home', defaultRoute: true, path: '/', enter: showHome);
   router.listen();
+}
+
+void showNewTask(_) {
+    var newTaskHtml = querySelector('#newTask');
+    if (newTaskHtml.style.display == 'none') {
+        newTaskHtml.style.display = '';
+    } else {
+        newTaskHtml.style.display = 'none';
+    }
 }
 
 void showAbout(RouteEvent e) {
