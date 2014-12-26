@@ -29,7 +29,17 @@ void main() {
   DateTime today = new DateTime.now();
   String todaystring = today.toString();
   dateinp.value = formatDate(todaystring);
+  dateinp.onClick.listen(showCalendar);
   cal.setAttribute('data-date',formatDate(todaystring));
+}
+void showCalendar(_) {
+  var calview = querySelector('#calview');
+  if (calview.style.display == 'none') {
+    calview.style.display = '';
+    
+  } else {
+    calview.style.display = 'none';
+  }
 }
 
 void showNewTask(_) {
