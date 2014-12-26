@@ -22,9 +22,14 @@ void main() {
     ..addRoute(name: 'about', path: '/about', enter: showAbout)
     ..addRoute(name: 'home', defaultRoute: true, path: '/', enter: showHome);
   router.listen();
-  Calendar.use();
-  var dateinp = querySelector('.calendar');
-  dateinp.setAttribute('data-date',"31/12/2014" );
+
+  Calendar.use(); // Init Bootjack_Datepicker
+  InputElement dateinp = querySelector('#dateinp');
+  var cal = querySelector('.calendar');
+  DateTime today = new DateTime.now();
+  String todaystring = today.toString();
+  dateinp.value = formatDate(todaystring);
+  cal.setAttribute('data-date',formatDate(todaystring));
 }
 
 void showNewTask(_) {
@@ -45,4 +50,10 @@ void showAbout(RouteEvent e) {
 void showHome(RouteEvent e) {
   querySelector('#home').style.display = '';
   querySelector('#about').style.display = 'none';
+}
+String formatDate(String date) {
+    var spl = date.split('-');
+    var day = spl[2].split(' ')[0];
+    
+    return day+"/" +spl[1] +"/" + spl[0];
 }
