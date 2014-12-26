@@ -60,7 +60,19 @@
        displays or hides when the URL changes -->
   <main>
 
-    <div id="home">
+      <div id="home">
+          <div class="newtaskbutton">
+              <button id="showNewTask">New Task</button>
+          </div>
+          <div id="newTask" style="display:none">
+              <div class="form.control">
+                  <input type="text" placeholder="Task Summary" id="tsummary"
+              </div>
+              <div class="form.control">
+                  <textarea rows="5" cols="20" id="tcontent">Task Content</textarea>
+              </div>
+          </div>
+      </div>
       <p>
         Name:<br>
         <input type="text" id="name" placeholder="Type your name...">
@@ -75,14 +87,6 @@
     <div id="about" style="display:none">
       <p>
           Simple Task planner using Dart and Localstorage.
-      </p>
-    </div>
-
-    <div class="sass-hidden">
-      <p>
-        Note: to use Sass with this application, switch the stylesheet
-        references in the &lt;head&gt; section and uncomment the sass
-        transformer in the pubspec.yaml file.
       </p>
     </div>
   </main>
