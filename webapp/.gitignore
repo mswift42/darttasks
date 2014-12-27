@@ -4,3 +4,5 @@
 build/
 packages
 pubspec.lock
+main_gen.css
+_*.scss
