@@ -25,4 +25,13 @@ main() {
         expect(newt.style.display,equals('none'));
 
     });
+    test("showCalendar",() {
+    var cal = querySelector("#calview");
+    expect(cal.style.display, equals('none'));
+    showCalendar('');
+    expect(cal.style.display, equals(''));
+    showCalendar('');
+    expect(cal.style.display,equals('none'));
+
+    });
 }
