@@ -2,6 +2,7 @@ library new_task;
 
 import 'dart:html';
 import 'dart:convert';
+import 'package:webapp/list_tasks.dart';
 
 initNewTask() {
     var newTaskButton = querySelector('#showNewTask');
@@ -12,7 +13,6 @@ initNewTask() {
 
     var cal = querySelector('.calendar');
     DateTime today = new DateTime.now();
-    print(today.millisecondsSinceEpoch);
     String todaystring = today.toString();
     dateinp.value = formatDate(todaystring);
     dateinp.onClick.listen(showCalendar);
@@ -49,7 +49,6 @@ void saveTask(_) {
     String con = querySelector('#tcontent').value;
     String sched = querySelector('#dateinp').value;
     String timestamp = new DateTime.now().millisecondsSinceEpoch.toString();
-    final String STORAGE_KEY = 'darttasks';
     List tasks = [];
     if(window.localStorage.containsKey(STORAGE_KEY)) {
         tasks = JSON.decode(window.localStorage[STORAGE_KEY]);
