@@ -3,6 +3,7 @@ library new_task;
 import 'dart:html';
 import 'dart:convert';
 import 'package:webapp/list_tasks.dart';
+import 'package:webapp/toggle_display.dart';
 
 initNewTask() {
     var newTaskButton = querySelector('#showNewTask');
@@ -25,24 +26,21 @@ String formatDate(String date) {
 
     return day+"/" +spl[1] +"/" + spl[0];
 }
-void showCalendar(_) {
-    var calview = querySelector('#calview');
-    if (calview.style.display == 'none') {
-        calview.style.display = '';
+// void showCalendar(_) {
+//     var calview = querySelector('#calview');
+//     if (calview.style.display == 'none') {
+//         calview.style.display = '';
 
-    } else {
-        calview.style.display = 'none';
-    }
+//     } else {
+//         calview.style.display = 'none';
+//     }
+// }
+void showCalendar(_) {
+  toggleDisplay('#calview');
 }
 
-
 void showNewTask(_) {
-    var newTaskHtml = querySelector('#newTask');
-    if (newTaskHtml.style.display == 'none') {
-        newTaskHtml.style.display = '';
-    } else {
-        newTaskHtml.style.display = 'none';
-    }
+  toggleDisplay('#newTask');
 }
 void saveTask(_) {
     String sum = querySelector('#tsummary').value;
