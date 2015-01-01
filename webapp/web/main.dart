@@ -5,6 +5,7 @@ import 'dart:html';
 
 import 'package:webapp/nav_menu.dart';
 import 'package:webapp/new_task.dart';
+import 'package:webapp/list_tasks.dart';
 import 'package:route_hierarchical/client.dart';
 import 'package:bootjack_datepicker/bootjack_datepicker.dart';
 
@@ -13,6 +14,7 @@ ButtonElement newTaskButton;
 void main() {
   initNavMenu();
   initNewTask();
+  listTasks();
 
   // Webapps need routing to listen for changes to the URL.
   var router = new Router();
