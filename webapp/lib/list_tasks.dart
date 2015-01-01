@@ -2,6 +2,7 @@ library list_tasks;
 
 import 'dart:html';
 import 'dart:convert';
+import 'package:webapp/toggle_display.dart';
 
 
 final String STORAGE_KEY = 'darttasks';
@@ -23,10 +24,13 @@ void listTasks() {
     taskcontentcontainer.append(taskcontent);
     taskcontent.appendText(task['content']);
 
-    taskcontentcontainer.style.display='none';
+    taskcontentcontainer
+      ..style.display='none'
+      ..id='taskcontent';
+
+    tasksummary.onClick.listen(toggleContentView);
 
   }
-  
 }
 
 // sortTasks - sort taskobjects by 'scheduled' in increasing order.
@@ -40,6 +44,11 @@ void sortTasks(List tasks) {
 DateTime parseTimeString(String date) {
   var spl = date.split('/');
   return DateTime.parse(spl.join(''));
+}
+
+void toggleContentView(_) {
+  toggleDisplay('#taskcontent');
+  
 }
 
 
