@@ -22,18 +22,25 @@ void listTasks() {
     singletask.append(taskcontentcontainer);
     taskcontentcontainer.append(taskcontent);
     taskcontent.appendText(task['content']);
-    
-    
+
+    taskcontentcontainer.style.display='none';
+
   }
   
-
 }
 
 // sortTasks - sort taskobjects by 'scheduled' in increasing order.
 void sortTasks(List tasks) {
-  tasks.sort((a,b) => a['scheduled'].compareTo(b['scheduled']));
+  tasks.sort((a,b) => parseTimeString(a['scheduled']).compareTo(parseTimeString(b['scheduled'])));
 }
 
+
+// parseTimeString - convert a date in format dd/mm/yyyy to a DateTime
+// object.
+DateTime parseTimeString(String date) {
+  var spl = date.split('/');
+  return DateTime.parse(spl.join(''));
+}
 
 
 
