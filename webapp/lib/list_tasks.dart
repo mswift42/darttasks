@@ -26,9 +26,9 @@ void listTasks() {
 
     taskcontentcontainer
       ..style.display='none'
-      ..id='taskcontent';
+      ..id='id'+task['id'];
 
-    tasksummary.onClick.listen(toggleContentView);
+    tasksummary.onClick.listen((e) => toggleContentView(task['id']));
 
   }
 }
@@ -46,9 +46,8 @@ DateTime parseTimeString(String date) {
   return DateTime.parse(spl.join(''));
 }
 
-void toggleContentView(_) {
-  toggleDisplay('#taskcontent');
-  
+void toggleContentView(id) {
+  toggleDisplay("#id"+id);
 }
 
 
