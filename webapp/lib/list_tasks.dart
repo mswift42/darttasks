@@ -7,6 +7,19 @@ import 'package:webapp/toggle_display.dart';
 
 final String STORAGE_KEY = 'darttasks';
 
+
+
+void tasksInit() {
+  List tasks = [];
+  if(window.localStorage.containsKey(STORAGE_KEY)) {
+    tasks = JSON.decode(window.localStorage[STORAGE_KEY]);
+
+    // Decoding Error, should not happen
+    if(tasks == null) {
+      tasks = [];
+    }
+  }
+}
 void listTasks() {
   var tl = querySelector('#tasklist');
   List tasks = JSON.decode(window.localStorage[STORAGE_KEY]);

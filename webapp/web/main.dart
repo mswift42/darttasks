@@ -13,6 +13,7 @@ ButtonElement newTaskButton;
 
 void main() {
   initNavMenu();
+  tasksInit();
   initNewTask();
   listTasks();
 
