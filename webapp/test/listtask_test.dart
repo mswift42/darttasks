@@ -26,4 +26,21 @@ main() {
     sortTasks(l5);
     expect(l5[0]['summary'],equals('a'));
   });
-}
+  test('parseTimeString', () {
+  var  t1 = parseTimeString("01/01/2000");
+  var  t2 = parseTimeString("31/12/2010");
+  var  t3 = parseTimeString("30/06/2014");
+  var  t4 = parseTimeString("05/01/2014");
+    expect(t1.year,equals(2000));
+    expect(t1.day,equals(1));
+    expect(t2.month,equals(12));
+    expect(t2.year,equals(2010));
+    expect(t2.day,equals(31));
+    expect(t3.day,equals(30));
+    expect(t3.month,equals(6));
+    expect(t3.year,equals(2014));
+    expect(t4.year,equals(2014));
+    expect(t4.month,equals(1));
+    expect(t4.day,equals(5));
+  });
+    }
