@@ -11,11 +11,11 @@ final String STORAGE_KEY = 'darttasks';
 
 void tasksInit() {
   List tasks = [];
-  if(window.localStorage.containsKey(STORAGE_KEY)) {
+  if (window.localStorage.containsKey(STORAGE_KEY)) {
     tasks = JSON.decode(window.localStorage[STORAGE_KEY]);
 
     // Decoding Error, should not happen
-    if(tasks == null) {
+    if (tasks == null) {
       tasks = [];
     }
   }
@@ -38,8 +38,8 @@ void listTasks() {
     taskcontent.appendText(task['content']);
 
     taskcontentcontainer
-      ..style.display='none'
-      ..id='id'+task['id'];
+        ..style.display = 'none'
+         ..id = 'id' + task['id'];
 
     tasksummary.onClick.listen((e) => toggleContentView(task['id']));
 
@@ -48,7 +48,7 @@ void listTasks() {
 
 // sortTasks - sort taskobjects by 'scheduled' in increasing order.
 void sortTasks(List tasks) {
-  tasks.sort((a,b) => parseTimeString(a['scheduled']).compareTo(parseTimeString(b['scheduled'])));
+  tasks.sort((a, b) => parseTimeString(a['scheduled']).compareTo(parseTimeString(b['scheduled'])));
 }
 
 
@@ -56,12 +56,11 @@ void sortTasks(List tasks) {
 // object.
 DateTime parseTimeString(String date) {
   var spl = date.split('/');
-  return DateTime.parse(spl.join(''));
+  return DateTime.parse(spl[2]+spl[1]+spl[0]);
 }
 
 void toggleContentView(id) {
-  toggleDisplay("#id"+id);
+  toggleDisplay("#id" + id);
 }
-
 
 
