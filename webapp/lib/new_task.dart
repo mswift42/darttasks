@@ -12,7 +12,6 @@ initNewTask() {
   var saveTaskButton = querySelector('#savetask');
   saveTaskButton.onClick.listen(saveTask);
 
-
   var cal = querySelector('.calendar');
   DateTime today = new DateTime.now();
   String todaystring = today.toString();
@@ -40,15 +39,6 @@ void saveTask(_) {
   String con = querySelector('#tcontent').value;
   String sched = querySelector('#dateinp').value;
   String timestamp = new DateTime.now().millisecondsSinceEpoch.toString();
-  // List tasks = [];
-  // if(window.localStorage.containsKey(STORAGE_KEY)) {
-  //   tasks = JSON.decode(window.localStorage[STORAGE_KEY]);
-
-  //   // Decoding Error, should not happen
-  //   if(tasks == null) {
-  //     tasks = [];
-  //   }
-  // }
 
   var task = {
     "summary": sum,
@@ -58,4 +48,8 @@ void saveTask(_) {
   };
   tasks.add(task);
   window.localStorage[STORAGE_KEY] = JSON.encode(tasks);
+}
+
+bool validateTask(String summary) {
+  return summary != '';
 }

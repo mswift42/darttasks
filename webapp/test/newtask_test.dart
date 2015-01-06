@@ -34,4 +34,9 @@ main() {
     expect(cal.style.display,equals('none'));
 
     });
+      test('validateTask',() {
+    expect(validateTask(""),equals(false));
+    expect(validateTask("someinput"),equals(true));
+  });
+
 }
