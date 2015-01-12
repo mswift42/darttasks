@@ -6,11 +6,10 @@ import 'package:webapp/toggle_display.dart';
 
 
 final String STORAGE_KEY = 'darttasks';
-
+List tasks = [];
 
 
 void tasksInit() {
-  List tasks = [];
   if (window.localStorage.containsKey(STORAGE_KEY)) {
     tasks = JSON.decode(window.localStorage[STORAGE_KEY]);
 
@@ -18,6 +17,8 @@ void tasksInit() {
     if (tasks == null) {
       tasks = [];
     }
+  } else {
+    window.localStorage[STORAGE_KEY] = JSON.encode(tasks);
   }
 }
 void listTasks() {
@@ -29,7 +30,7 @@ void listTasks() {
     var tasksummarycontainer = new DivElement();
     var tasksummary = new Element.tag('p');
     var taskcontentcontainer = new DivElement();
-    var taskcontent = new PreElement();
+       var taskcontent = new PreElement();
     tl.children.add(singletask);
     singletask.children.add(tasksummary);
     tasksummary.appendText(task['summary']);
@@ -49,6 +50,11 @@ void listTasks() {
 // sortTasks - sort taskobjects by 'scheduled' in increasing order.
 void sortTasks(List tasks) {
   tasks.sort((a, b) => parseTimeString(a['scheduled']).compareTo(parseTimeString(b['scheduled'])));
+}
+
+void removeAllTasks() {
+  var tl = querySelector('#tasklist');
+  tl.children.clear();
 }
 
 
