@@ -51,7 +51,7 @@ void listTasks() {
 void sortTasks(List tasks) {
   tasks.sort((a, b) => parseTimeString(a['scheduled']).compareTo(parseTimeString(b['scheduled'])));
 }
-
+// removeAllTasks - remove all children of ul with id tasklist
 void removeAllTasks() {
   var tl = querySelector('#tasklist');
   tl.children.clear();
